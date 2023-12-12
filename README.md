@@ -4,6 +4,8 @@ Al-Quran app
 
 ## Getting Started
 
-![Preview](Screenshot1.png){width=250}
-![Preview](Screenshot2.png){width=250}
-![Preview](Screenshot3.png){width=250}
+![Preview](Screenshot1.png)
+![Preview](Screenshot2.png)
+![Preview](Screenshot3.png)
+
+knitr::opts_chunk$set(out.width="250px")

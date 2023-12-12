@@ -4,7 +4,7 @@ Al-Quran app
 
 ## Getting Started
 
-![](Screenshot1.png =x250)
+![<img src="Screenshot1.png" width="250"/>](Screenshot1.png =x250)
 ![Preview](Screenshot2.png)
 ![Preview](Screenshot3.png)
 

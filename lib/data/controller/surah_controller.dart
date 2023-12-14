@@ -34,7 +34,7 @@ class SurahController extends GetxController {
         });
         // print(response.data["data"]["ayat"]);
       }
-    } on SocketException catch (e) {
+    } on SocketException {
       rethrow;
     } on Exception catch (e) {
       throw Exception(e);

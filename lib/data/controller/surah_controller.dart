@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:alquran/data/models/surah_model.dart';
 import 'package:alquran/service/dio_service.dart';
 import 'package:get/get.dart';
@@ -11,7 +13,19 @@ class SurahController extends GetxController {
   var url = "https://equran.id/api/v2/surat";
 
   getSurah() async {
+    isInternetConnection();
+    isLoading.value = true;
+
     var response = await DioService().getMethod(url);
+
+    // if (response.statusCode == 200) {
+    //   response.data["data"].forEach(
+    //     (element) {
+    //       surah.add(SurahModel.fromJson(element));
+    //     },
+    //   );
+    //   isLoading.value = false;
+    // }
 
     try {
       if (response.statusCode == 200) {
@@ -20,6 +34,10 @@ class SurahController extends GetxController {
         });
         // print(response.data["data"]["ayat"]);
       }
+    } on SocketException catch (e) {
+      rethrow;
+    } on Exception catch (e) {
+      throw Exception(e);
     } finally {
       isLoading(false);
     }

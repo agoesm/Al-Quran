@@ -32,7 +32,6 @@ class Surah extends StatelessWidget {
                       'Please check your Connection',
                       colorText: kWhite,
                       backgroundColor: primaryColor,
-                      snackPosition: SnackPosition.BOTTOM,
                     );
                   }
                 },

@@ -53,15 +53,12 @@ class ItemSurah extends StatelessWidget {
               children: [
                 Text(title, style: Theme.of(context).textTheme.titleMedium),
                 const SizedBox(height: 5),
-                SizedBox(
-                  width: 250,
-                  child: Text(
-                    '$turun - $jumlAyat Ayat',
-                    style: Theme.of(context).textTheme.bodyMedium,
-                    softWrap: false,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                Text(
+                  '$turun - $jumlAyat Ayat',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  softWrap: false,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),

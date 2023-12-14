@@ -51,7 +51,10 @@ class _HomeState extends State<Home> {
             ListTile(
               title: const Text('About App'),
               leading: const Icon(Icons.info_outline),
-              onTap: () => Get.to(() => const About()),
+              onTap: () => {
+                Get.to(() => const About())
+                    ?.then((value) => Navigator.pop(context)),
+              },
             ),
           ],
         ),

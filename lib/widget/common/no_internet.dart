@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class NoInternet extends StatelessWidget {
-  const NoInternet({super.key});
+  final Function() onPress;
+  const NoInternet({super.key, required this.onPress});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class NoInternet extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: onPress,
             child: const Text('Try Again'),
           )
         ],

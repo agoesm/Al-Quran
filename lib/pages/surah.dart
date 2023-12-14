@@ -5,6 +5,7 @@ import 'package:alquran/widget/common/no_internet.dart';
 import 'package:alquran/widget/item/item_surah.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 class Surah extends StatelessWidget {
   const Surah({super.key});
@@ -21,7 +22,21 @@ class Surah extends StatelessWidget {
             ? surahController.isLoading.value
                 ? _loader()
                 : _listSurah(surahController)
-            : const NoInternet(),
+            : NoInternet(
+                onPress: () async {
+                  if (await InternetConnectionChecker().hasConnection == true) {
+                    surahController.getSurah();
+                  } else {
+                    Get.snackbar(
+                      'No Internet',
+                      'Please check your Connection',
+                      colorText: kWhite,
+                      backgroundColor: primaryColor,
+                      snackPosition: SnackPosition.BOTTOM,
+                    );
+                  }
+                },
+              ),
       ),
     );
   }

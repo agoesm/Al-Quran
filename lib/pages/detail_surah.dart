@@ -1,10 +1,12 @@
 import 'package:alquran/data/controller/ayat_controller.dart';
 import 'package:alquran/data/controller/surah_controller.dart';
+import 'package:alquran/utils/constants/colors.dart';
 import 'package:alquran/widget/common/no_internet.dart';
 import 'package:alquran/widget/item/item_detail_surah.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 class DetailSurah extends StatelessWidget {
   final int index;
@@ -74,7 +76,21 @@ class DetailSurah extends StatelessWidget {
                             );
                           },
                         )
-                  : const NoInternet(),
+                  : NoInternet(
+                      onPress: () async {
+                        if (await InternetConnectionChecker().hasConnection) {
+                          surahController.getSurah();
+                        } else {
+                          Get.snackbar(
+                            'No Internet',
+                            'Please check your Connection',
+                            colorText: kWhite,
+                            backgroundColor: primaryColor,
+                            snackPosition: SnackPosition.BOTTOM,
+                          );
+                        }
+                      },
+                    ),
             ),
           ),
         ),

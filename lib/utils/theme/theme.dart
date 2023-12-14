@@ -14,6 +14,6 @@ ThemeData theme() {
     // primarySwatch: Colors.blue,
     useMaterial3: true,
     textTheme: myTextTheme,
-    fontFamily: GoogleFonts.poppins().fontFamily,
+    fontFamily: GoogleFonts.roboto().fontFamily,
   );
 }
